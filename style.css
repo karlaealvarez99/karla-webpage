@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    overflow-x: hidden;
+}
+
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #00ff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#terminal {
+    width: 80%;
+    max-width: 800px;
+    font-size: 1.2em;
+    line-height: 1.4;
+}
+
+#output {
+    white-space: pre-wrap;
+}
+
+#cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+h1 {
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#main {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 0 0 10px #00ff00;
+    position: relative;
+    transition: text-shadow 0.3s;
+}
+
+h1:hover {
+    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+}
+
+h1::before, h1::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+h1:hover::before {
+    animation: glitch1 0.5s infinite;
+    color: #ff0000;
+    z-index: -1;
+    opacity: 1;
+}
+
+h1:hover::after {
+    animation: glitch2 0.5s infinite;
+    color: #0000ff;
+    z-index: -2;
+    opacity: 1;
+}
+
+@keyframes glitch1 {
+    0%, 100% { transform: translate(0); }
+    10% { transform: translate(-1px, 1px); }
+    20% { transform: translate(-1px, -1px); }
+    30% { transform: translate(1px, 1px); }
+    40% { transform: translate(1px, -1px); }
+    50% { transform: translate(-1px, 1px); }
+    60% { transform: translate(-1px, -1px); }
+    70% { transform: translate(1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+    90% { transform: translate(-1px, 1px); }
+}
+
+@keyframes glitch2 {
+    0%, 100% { transform: translate(0); }
+    15% { transform: translate(1px, -1px); }
+    30% { transform: translate(-1px, 1px); }
+    45% { transform: translate(1px, 1px); }
+    60% { transform: translate(-1px, -1px); }
+    75% { transform: translate(1px, -1px); }
+    90% { transform: translate(-1px, 1px); }
+}
+
+nav button {
+    color: #00ff00;
+    background: none;
+    border: none;
+    margin: 0 20px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    transition: color 0.3s;
+}
+
+nav button:hover {
+    color: #ffffff;
+}
+
+.card-3d {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00ff00;
+    padding: 20px;
+    margin: 20px 0;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+}
+
+.card-3d:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+}
+
+#terminal-output {
+    background: #000;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #00ff00;
+    margin-bottom: 10px;
+}
+
+#terminal-input {
+    background: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 5px;
+    width: 100%;
+    font-family: 'Courier New', monospace;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    background-color: #000;
+    border: 1px solid #00ff00;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    color: #00ff00;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.modal-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px #00ff00;
+}
+
+.about-section {
+    background-color: #000;
+    border: 1px solid #00ff00;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    color: #00ff00;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-section:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px #00ff00;
+}
+
+#video-modal .modal-content iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.close {
+    color: #00ff00;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ffffff;
+}

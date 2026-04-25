@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Portfolio - Karla Alvarez</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="intro">
+        <div id="terminal">
+            <div id="output"></div>
+            <span id="cursor">|</span>
+        </div>
+    </div>
+    <div id="main" style="display: none;">
+        <canvas id="bg-canvas"></canvas>
+        <header>
+            <h1 data-text="Karla Alvarez">Karla Alvarez</h1>
+            <nav>
+                <button data-section="hobbies">Hobbies</button>
+                <button data-section="contact">Contact</button>
+                <button data-section="terminal-prompt">Terminal</button>
+                <button data-section="video">Video</button>
+            </nav>
+        </header>
+        <div class="about-section">
+            <h2>About Me</h2>
+            <img src="NYHC.jpg" alt="Karla Alvarez" style="width: 250px; height: 250px; border-radius: 50%; display: block; margin: 0 auto 20px; border: 2px solid #00ff00;">
+            <p>I’m a cybersecurity student eager to learn and grow! Currently, I work in IT Helpdesk, helping with tech support, installations and more. I’ve gained experience in different technology fields and love taking on new challenges. I’m excited to explore opportunities and build my skills!
+
+With a strong foundation in both technical and soft skills, I am dedicated to further developing my expertise in various niches in technology while contributing to meaningful technological advancements.  I’m passionate about continuous learning and using my skills to solve real-world problems. I look forward to growing my career in the IT and tech industry, contributing to innovative solutions and collaborating with diverse teams.</p>
+        </div>
+        <div id="contact-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Contact</h2>
+                <p>Reach me at karla.alvarez@stu.bcc.cuny.edu</p>
+                <p>
+                    <a href="https://www.linkedin.com/in/karla-alvarez-6a9650130/" target="_blank" style="color: #00ff00;">LinkedIn</a> | 
+                    <a href="https://github.com/karlaealvarez99" target="_blank" style="color: #00ff00;">GitHub</a>
+                </p>
+            </div>
+        </div>
+        <div id="terminal-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Terminal</h2>
+                <div id="terminal-output">Welcome to Karla's Terminal. Type 'help' for commands.</div>
+                <input type="text" id="terminal-input" placeholder="Type a command...">
+            </div>
+        </div>
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Featured Video</h2>
+                <iframe src="https://www.youtube.com/embed/UQSy95YFGFI" allowfullscreen></iframe>
+                <p>Fun fact: This video features the hacker who inspired me to study cybersecurity!</p>
+            </div>
+        </div>
+        <div id="hobbies-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>My Hobbies</h2>
+                <ul>
+                    <li><strong>🎵 Music</strong>: I love exploring different genres, from classical to electronic, and sometimes play instruments like guitar.</li>
+                    <li><strong>📖 POETRY</strong>: Writing and reading poetry helps me express creativity and reflect on life.</li>
+                    <li><strong>📚 Reading</strong>: I enjoy diving into books on technology, science fiction, and personal development.</li>
+                    <li><strong>🧱 LEGO</strong>: Building with LEGO is a fun way to relax and spark imagination, often creating intricate models.</li>
+                    <li><strong>🎬 Documentaries</strong>: Watching documentaries on history, science, and culture broadens my knowledge and perspective.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
