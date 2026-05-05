@@ -1,8 +1,28 @@
+:root {
+    --bg-color: #000;
+    --text-color: #00ff00;
+    --accent-color: #00ff00;
+    --secondary-bg: rgba(0, 0, 0, 0.8);
+    --border-color: #00ff00;
+    --accent-rgb: 0, 255, 0;
+    --modal-bg: rgba(0, 0, 0, 0.9);
+}
+
+.light {
+    --bg-color: #fff;
+    --text-color: #000;
+    --accent-color: #007bff;
+    --secondary-bg: rgba(255, 255, 255, 0.9);
+    --border-color: #007bff;
+    --accent-rgb: 0, 123, 255;
+    --modal-bg: rgba(255, 255, 255, 0.9);
+}
+
 body {
     margin: 0;
     padding: 0;
-    background: #000;
-    color: #00ff00;
+    background: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Courier New', monospace;
     overflow-x: hidden;
 }
@@ -13,8 +33,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000;
-    color: #00ff00;
+    background: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,6 +83,8 @@ h1 {
     position: relative;
     z-index: 10;
     padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 header {
@@ -70,15 +92,27 @@ header {
     margin-bottom: 40px;
 }
 
+#theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1001;
+}
+
 h1 {
     font-size: 3em;
-    text-shadow: 0 0 10px #00ff00;
+    text-shadow: 0 0 10px var(--accent-color);
     position: relative;
     transition: text-shadow 0.3s;
 }
 
 h1:hover {
-    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+    text-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
 }
 
 h1::before, h1::after {
@@ -107,6 +141,15 @@ h1:hover::after {
     opacity: 1;
 }
 
+.profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
+    border: 2px solid var(--accent-color);
+}
+
 @keyframes glitch1 {
     0%, 100% { transform: translate(0); }
     10% { transform: translate(-1px, 1px); }
@@ -130,27 +173,41 @@ h1:hover::after {
     90% { transform: translate(-1px, 1px); }
 }
 
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+nav a,
 nav button {
-    color: #00ff00;
+    color: var(--text-color);
     background: none;
-    border: none;
-    margin: 0 20px;
+    border: 1px solid transparent;
+    padding: 8px 12px;
+    text-decoration: none;
+    margin: 0;
     cursor: pointer;
     font-family: 'Courier New', monospace;
-    transition: color 0.3s;
+    transition: color 0.3s, border-color 0.3s, background 0.3s;
 }
 
+nav a:hover,
 nav button:hover {
-    color: #ffffff;
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.08);
 }
 
-.card-3d {
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #00ff00;
-    padding: 20px;
-    margin: 20px 0;
-    transform-style: preserve-3d;
-    transition: transform 0.3s;
+.profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
+    border: 2px solid var(--accent-color);
 }
 
 .card-3d:hover {
@@ -158,20 +215,20 @@ nav button:hover {
 }
 
 #terminal-output {
-    background: #000;
-    color: #00ff00;
+    background: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Courier New', monospace;
     padding: 10px;
     height: 200px;
     overflow-y: auto;
-    border: 1px solid #00ff00;
+    border: 1px solid var(--border-color);
     margin-bottom: 10px;
 }
 
 #terminal-input {
-    background: #000;
-    color: #00ff00;
-    border: 1px solid #00ff00;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
     padding: 5px;
     width: 100%;
     font-family: 'Courier New', monospace;
@@ -185,42 +242,48 @@ nav button:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--modal-bg);
 }
 
 .modal-content {
-    background-color: #000;
-    border: 1px solid #00ff00;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
     margin: 10% auto;
     padding: 20px;
     width: 80%;
     max-width: 600px;
-    color: #00ff00;
+    color: var(--text-color);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .modal-content:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 20px #00ff00;
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+.modal-content a {
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
 .about-section {
-    background-color: #000;
-    border: 1px solid #00ff00;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
     margin: 20px auto;
     padding: 20px;
     width: 80%;
     max-width: 800px;
-    color: #00ff00;
+    color: var(--text-color);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .about-section:hover {
     transform: scale(1.01);
-    box-shadow: 0 0 10px #00ff00;
+    box-shadow: 0 0 10px var(--accent-color);
 }
 
-#video-modal .modal-content iframe {
+#video-modal .modal-content iframe,
+.video-section iframe {
     width: 100%;
     aspect-ratio: 16 / 9;
     border: none;
@@ -228,7 +291,72 @@ nav button:hover {
     margin: 0 auto;
 }
 
-.close {
+.profile-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
+    border: 2px solid #00ff00;
+    object-fit: cover;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #00ff00;
+    display: block;
+    margin: 20px auto;
+}
+
+.project-section,
+.research-section,
+.video-section,
+.links-section {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #00ff00;
+    margin: 20px auto;
+    padding: 24px;
+    width: 90%;
+    max-width: 900px;
+    color: #00ff00;
+}
+
+.project-section h2,
+.research-section h2,
+.about-section h2,
+.video-section h2,
+.links-section h2 {
+    margin-top: 0;
+}
+
+.project-section ul,
+.research-section ul,
+.links-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-section li,
+.research-section li,
+.links-section li {
+    margin-bottom: 10px;
+}
+
+.project-section a,
+.links-section a,
+.research-section a {
+    color: #00ff00;
+    text-decoration: underline;
+}
+
+.project-section a:hover,
+.links-section a:hover,
+.research-section a:hover {
+    color: #ffffff;
+}
+
+.card-3d {
     color: #00ff00;
     float: right;
     font-size: 28px;

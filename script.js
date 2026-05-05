@@ -4,6 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const intro = document.getElementById('intro');
     const main = document.getElementById('main');
 
+    // Theme toggle
+    const toggleButton = document.getElementById('theme-toggle');
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('light');
+        if (document.body.classList.contains('light')) {
+            toggleButton.textContent = '☀️';
+        } else {
+            toggleButton.textContent = '🌙';
+        }
+    });
+
     const lines = [
         'Initializing system...',
         'Loading kernel modules...',
