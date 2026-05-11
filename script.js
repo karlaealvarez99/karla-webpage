@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navButtons = document.querySelectorAll('nav button');
         const modals = {
             hobbies: document.getElementById('hobbies-modal'),
+            projects: document.getElementById('projects-modal'),
             contact: document.getElementById('contact-modal'),
             'terminal-prompt': document.getElementById('terminal-modal'),
             video: document.getElementById('video-modal')
