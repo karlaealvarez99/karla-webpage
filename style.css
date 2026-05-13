@@ -248,11 +248,16 @@ nav button:hover {
 .modal-content {
     background-color: var(--bg-color);
     border: 1px solid var(--border-color);
-    margin: 10% auto;
+    margin: 6vh auto;
     padding: 20px;
     width: 80%;
     max-width: 600px;
     color: var(--text-color);
+
+    /* Prevent content from getting cut off on shorter screens */
+    max-height: 80vh;
+    overflow-y: auto;
+
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
