@@ -291,6 +291,16 @@ nav button:hover {
     margin: 0 auto;
 }
 
+#features-modal .modal-content a,
+#features-modal .modal-content p {
+    color: var(--accent-color);
+}
+
+#features-modal .modal-content {
+    max-width: 650px;
+}
+
+
 .profile-photo {
     width: 220px;
     height: 220px;

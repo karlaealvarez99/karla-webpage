@@ -106,10 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const modals = {
             hobbies: document.getElementById('hobbies-modal'),
             projects: document.getElementById('projects-modal'),
+            features: document.getElementById('features-modal'),
             contact: document.getElementById('contact-modal'),
             'terminal-prompt': document.getElementById('terminal-modal'),
             video: document.getElementById('video-modal')
         };
+
 
         navButtons.forEach(button => {
             button.addEventListener('click', () => {
